@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="res/css/styles.css">
+    <link rel="stylesheet" href="res/css/pagination.css">
+
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- Jquery UI -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+    
+
+    <!--Carousel-->
+    <link rel="stylesheet" href="res/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="res/css/owl.theme.default.min.css">
+    <script src="res/js/owl.carousel.min.js"></script>
+    <script src="res/js/jquery.mousewheel.js"></script>
+
+
+    <!-- Pagination -->
+    <script src="res/js/pagination.js"></script>
+
+    <!-- JavaScript -->
+    <script src="res/js/local.js"></script>
+    <script src="res/js/general.js"></script>
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg" href="res/img/favicon-08.png"/>
+
+    <!-- Flat icon -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+
+    <!-- Header/footer -->
+    <script src="res/js/header.js"></script>
+    <script src="res/js/footer.js"></script>
+
+
+    <!-- Fuentes tipográficas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    
+
+    <!-- Título -->
+    <title>Local - Restoclub</title>
+</head>
+<body>
+    
+    <div id="container-local">
+        <div class="titulo">
+            <button class="fav"><i class="fi fi-rr-heart"></i></button>
+            <button class="visitado"><i class="fi fi-br-check"></i></button>
+        </div>
+        <div class="info">
+        </div>
+        <div id="primera-fila">
+            <div class="owl-carousel">
+            </div>                
+        </div>
+        <div id="segunda-fila">
+            <div id="mapa">
+                <h2>Mapa y contacto</h2>
+                <div id="map"></div>
+            </div>
+
+            <div>
+
+                <div id="caracteristicas">
+                    <h2>Características</h2>
+
+                    <div>
+
+                        <div>
+                            <div class="categoria">
+                                <h6>Categoría</h6>
+                            </div>
+                            <div class="pagos">
+                                <h6>Tipos de pago</h6>
+                                
+                            </div>
+                        </div>
+                        <div>
+                            <div class="gama">
+                                <h6>Gama</h6>
+                            </div>
+                            <div class="dietas">
+                                <h6>Dietas especiales</h6>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                    
+                </div>
+                <div id="otros">
+                    <div id="promociones">
+                        <h2>Promociones activas</h2>
+                        
+                    </div>
+                    <div id="calendario">
+                        <h2>Calendario de Eventos</h2></div>
+                </div>
+            </div>
+            
+        </div>
+        <div id="tercera-fila">
+            <h2>Comentarios</h2>
+            <h6>Deja una opinión sobre el local</h6>
+            <div class="form-container">
+                <form id="comentarios">
+                    <textarea name="comentario" id="comentario" cols="30" rows="10"></textarea>
+                    <button class="btn-secundario" id="enviarComentario">Enviar</button>
+                </form>
+            </div>
+            <div class="fila-comentario">
+            </div>
+
+            <!-- Paginator -->
+            <div id="data-container"></div>
+            <div id="pagination-container"></div>
+        </div>
+        <div id="validado" class="ui-helper-hidden"></div>
+    </div>
+</body>
+</html>

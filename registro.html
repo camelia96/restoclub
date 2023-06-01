@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="res/css/styles.css">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- Jquery UI -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+
+    <!-- Header/footer -->
+    <script src="res/js/header.js"></script>
+    <script src="res/js/footer.js"></script>
+    
+    <!-- Javascript -->
+    <script src="res/js/registro.js"></script>
+    <script src="res/js/general.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg" href="res/img/favicon-08.png"/>
+
+    
+
+    <!-- Fuentes tipográficas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Título -->
+    <title>Registro - Restoclub</title>
+</head>
+<body>
+    
+    
+    <div id="container-registro">
+        <div id="img">
+
+        </div>
+        <div id="registro_formulario">
+            <p id="dialog" ></p>
+            <h3>Crear una cuenta</h3>
+            
+            <form action="">
+                <div id="aviso"></div>
+                <div>
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo">
+                    <input type="text" name="usuario" id="usuario" placeholder="Usuario" title="El nombre de usuario ha de tener mínimo 5 caracteres">
+                </div>
+                <div>
+                    <input type="text" name="email" id="email" placeholder="E-mail">
+                    <div id="radios">
+                        <label for="cliente">Soy cliente</label>
+                        <input type="radio" name="tipo" id="cliente" value="cliente">
+                        <label for="duenyo">Soy dueño</label>
+                        <input type="radio" name="tipo" id="duenyo" value="duenyo">
+                    </div>
+                </div>
+                <div>
+                    <input type="password" name="pass" id="pass" placeholder="Contraseña" title="La contraseña ha de tener mínimo 6 caracteres, mayúsculas, minúsculas y números">
+                    <input type="password" name="repeat" id="repeat" placeholder="Repetir contraseña">
+                </div>
+                <div>
+                    <button type="button" id="registrarse" class="btn-primario">Registrarse</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

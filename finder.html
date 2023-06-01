@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="res/css/styles.css">
+    <link rel="stylesheet" href="res/css/pagination.css">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- Jquery UI -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+    <!-- Multiselect -->
+    <link rel="stylesheet" type="text/css" href="res/css/multiselect.css">
+
+    <!-- Include plugin -->
+    <script src="res/js/multiselect.min.js"></script>
+
+    <!-- Pagination -->
+    <script src="res/js/pagination.js"></script>
+
+
+    <!-- Flat icon -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
+
+    <!-- Javascript -->
+    <script src="res/js/finder.js"></script>
+    <script src="res/js/general.js"></script>
+
+    <!-- Header/footer -->
+    <script src="res/js/header.js"></script>
+    <script src="res/js/footer.js"></script>
+    
+
+    <!-- Fuentes tipográficas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg" href="res/img/favicon-08.png"/>
+
+    <!-- Título -->
+    <title>Restoclub</title>
+</head>
+<body>
+    <div id="container-finder">
+        <div id="sugerencias">
+            <button class="sugerencia btn-secundario americano">Americano</button>
+            <button class="sugerencia btn-secundario discotecas">Discotecas</button>
+            <button class="sugerencia btn-secundario pub">Pubs</button>
+            <button class="sugerencia btn-secundario gluten">Sin gluten</button>
+            <button class="sugerencia btn-secundario italiano">Italiano</button>
+            <button class="sugerencia btn-secundario recreativo">Recreativos</button>
+        </div>
+        <div id="busqueda">
+            <div id="buscar">
+                <form action="">
+                    <input type="text" placeholder="¿Te sabes el nombre del sitio?" name="nombre">
+                    <select name="provincia" id="provincia">
+                        <option value="0">Selecciona una provincia</option>
+                    </select>
+                    <button><i class="fi fi-rr-search"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div id="randomizador">
+            <p>¿No se te ocurre ningún plan? Prueba con el <a href="" class="button randomizador"> randomizador</a>
+            </p>
+
+        </div>
+        <div id="filtrado">
+            <div id="filtros">
+                <form class="filtros-finder">
+                    <div class="col-filtro">
+                        <div class="tipo-filtro">
+                            <label for="categoria">Categorias</label>
+                            <select id="categoria" multiple="multiple" name="categoria[]"></select>
+                        </div>
+                        <div class="tipo-filtro">
+                            <label for="tipo">Tipos de restaurantes</label>
+                            <select id="tipo" multiple="multiple" name="tipo[]"></select>
+                        </div>
+                        <div class="tipo-filtro">
+                            <label for="gama">Gamas</label>
+                            <select id="gama" multiple="multiple" name="gama[]"></select>
+                        </div>
+                        <div class="tipo-filtro">
+                            <label for="pago">Tipos de pago</label>
+                            <select id="pago" multiple="multiple" name="tipos_pago[]"></select>
+                        </div>
+                    </div>
+                    <div class="col-filtro">
+
+                        <div class="tipo-filtro">
+                            <label for="dieta">Dietas</label>
+                            <select id="dieta" multiple="multiple" name="dieta[]"></select>
+                        </div>
+                        <div class="tipo-filtro">
+                            <label for="evento">Eventos</label>
+                            <label for="evento" class="arrow"></label>
+                            <select id="evento" name="eventos">
+                                <option value="0"></option>
+                                <option value="1">Con eventos</option>
+                                <option value="2">Sin eventos</option>
+                            </select>
+                        </div>
+                        <div class="tipo-filtro">
+                            <label for="promocion">Promociones</label>
+                            <label for="promocion" class="arrow"></label>
+                            <select id="promocion" name="promociones">
+                                <option value="0"></option>
+                                <option value="1">Con promociones</option>
+                                <option value="2">Sin promociones</option>
+                            </select>
+                        </div>
+                        <div class="tipo-filtro">
+                            <label for="ordenar" >Ordenar</label>
+                            <label for="categoria" class="arrow"></label>
+                            <select name="ordenar" id="ordenar">
+                                <option value="0"></option>
+                                <option value="asc">Alfabéticamente ASC</option>
+                                <option value="desc">Alfabéticamente DESC</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                </form>
+                <div class="botones-filtrado">
+                    <button class="btn-primario" id="boton-filtrar">Filtrar</button>
+                    <button class="btn-secundario" id="borrar-filtrar">Borrar filtros</button>
+                </div>
+                    <!--
+                    <div id="filtro-categoria">
+                        <h5>Categoria</h5>
+                        <p>
+                            <input type="checkbox" name="restaurante" id="restaurante">
+                            <label for="restaurante">Restaurantes</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="pub" id="pub">
+                            <label for="pub">Pubs</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="discoteca" id="discoteca">
+                            <label for="discoteca">Discotecas</label>
+                        </p>
+                        <p class="oculto">
+                            <input type="checkbox" name="cerveceria" id="cerveceria">
+                            <label for="cerveceria">Cervecerías</label>
+                        </p>
+                        <p class="oculto">
+                            <input type="checkbox" name="bar" id="bar">
+                            <label for="bar">Bares</label>
+                        </p>
+                        <p class="oculto">
+                            <input type="checkbox" name="cafeteria" id="cafeteria">
+                            <label for="cafeteria">Cafeterías</label>
+                        </p>
+                        <p class="oculto">
+                            <input type="checkbox" name="panaderia" id="panaderia">
+                            <label for="panaderia">Panaderías</label>
+                        </p>
+                        <p class="oculto">
+                            <input type="checkbox" name="vinoteca" id="vinoteca">
+                            <label for="vinoteca">Vinotecas</label>
+                        </p>
+                        <p class="oculto">
+                            <input type="checkbox" name="recreativo" id="recreativo">
+                            <label for="recreativo">Recreativos</label>
+                        </p>
+                        <p class="mostrar"><i class="fi fi-rr-angle-small-down"></i>Mostrar más</p>
+                    </div>
+                    <div class="divider"></div>
+                    <div id="filtro-tipoComida">
+                        <h5>Tipo comida</h5>
+                        <p>
+                            <input type="checkbox" name="americano" id="americano">
+                            <label for="americano">Americano</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="japo" id="japo">
+                            <label for="japo">Japonés</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="chino" id="chino">
+                            <label for="chino">Chino</label>
+                        </p>
+                        <p class="oculto">
+                            <input type="checkbox" name="italiano" id="italiano">
+                            <label for="italiano">Italiano</label>
+                        </p>
+                        <p class="oculto">
+                            <input type="checkbox" name="colombiano" id="colombiano">
+                            <label for="colombiano">Colombiano</label>
+                        </p>
+                        <p class="oculto">
+                            <input type="checkbox" name="venezolano" id="venezolano">
+                            <label for="venezolano">Venezolano</label>
+                        </p>
+                        <p class="oculto">
+                            <input type="checkbox" name="africano" id="africano">
+                            <label for="africano">Africano</label>
+                        </p>
+                        <p class="oculto">
+                            <input type="checkbox" name="medit" id="medit">
+                            <label for="medit">Mediterráneo</label>
+                        </p>
+                        <p class="oculto">
+                            <input type="checkbox" name="mexicano" id="mexicano">
+                            <label for="mexicano">Mexicano</label>
+                        </p>
+                        <p class="oculto">
+                            <input type="checkbox" name="argentino" id="argentino">
+                            <label for="argentino">Argentino</label>
+                        </p>
+                        <p class="mostrar"><i class="fi fi-rr-angle-small-down"></i>Mostrar más</p>
+    
+                    </div>
+                    <div class="divider"></div>
+                    <div id="filtro-precio">
+                        <h5>Precio</h5>
+                        <p >
+                            <input type="checkbox" name="econ" id="econ">
+                            <label for="econ">Económico</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="medio" id="medio">
+                            <label for="medio">Gama media</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="alto" id="alto">
+                            <label for="alto">Gama alta</label>
+                        </p>
+    
+                    </div>
+                    <div class="divider"></div>
+                    <div id="filtro-dieta">
+                        <h5>Dietas especiales</h5>
+                        <p >
+                            <input type="checkbox" name="gluten" id="gluten">
+                            <label for="gluten">Sin gluten</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="vegerariano" id="vegerariano">
+                            <label for="vegerariano">Vegetariano</label>
+                        </p>
+    
+                    </div>
+                    <div class="divider"></div>
+                    <div id="filtro-tipoPagos">
+                        <h5>Tipo de pagos</h5>
+                        <p >
+                            <input type="checkbox" name="efectivo" id="efectivo">
+                            <label for="efectivo">Efectivo</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="tarjeta" id="tarjeta">
+                            <label for="tarjeta">Tarjeta</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="bizum" id="bizum">
+                            <label for="bizum">Bizum</label>
+                        </p>
+    
+                    </div>
+                    <div class="divider"></div>
+                    <div id="filtro-eventos">
+                        <h5>Eventos</h5>
+                        <p>
+                            <input type="checkbox" name="eventos" id="eventos">
+                            <label for="eventos">Con eventos</label>
+                        </p>
+    
+                    </div>
+                    <div class="divider"></div>
+                    <div id="filtro-promos">
+                        <h5>Promociones</h5>
+                        <p>
+                            <input type="checkbox" name="promos" id="promos">
+                            <label for="promos">Con promociones activas</label>
+                        </p>
+    
+                    </div>
+                    <div class="divider"></div>
+                    -->
+            </div>
+            <div id="resultados">
+            </div>
+
+            <!-- Paginator -->
+            <div id="data-container"></div>
+            <div id="pagination-container"></div>
+        </div>
+
+        <!-- DIALOGS -->
+        <div id="dialog-randomizador" title="Randomizador" class="ui-helper-hidden">
+            <form class="form-rand">
+
+                <div>
+                    <label for="provinciaRand" class="arrow"></label>
+                    <select name="provinciaRand" id="provinciaRand">
+                        <option value="0">Selecciona una provincia</option>
+                    </select>
+                </div>
+                
+
+                <div>
+                    <label for="categoriaRand" class="arrow"></label>
+                    <select name="categoriaRand" id="categoriaRand">
+                        <option value="0">Selecciona una categoría</option>
+                    </select>
+                </div>
+                
+                <button type="button" class="btn-primario" id="randomizar">a randomizar</button>
+            </form>
+
+            <div class="separador"></div>
+
+            <div class="resultadoRand">
+                <div style="width: 100%; height: 35vh; display: flex; justify-content: center; align-items: center;"><p>Aquí aparecerá tu local randomizado</p></div>            </div>
+        </div>
+<!--
+        
+
+        <div id="dialog-anyadir-restaurante" title="Añadir nuevo restaurante">
+            <form>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
+            </form>
+        </div>
+
+        <div id="dialog-editar-restaurante" title="Editar restaurante">
+            <form>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
+            </form>
+        </div>
+    </div>-->
+</body>
+</html>

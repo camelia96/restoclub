@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="res/css/styles.css">
+
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- Jquery UI -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+
+    <!-- Javascript -->
+    <script src="res/js/login.js"></script>
+    <script src="res/js/general.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg" href="res/img/favicon-08.png"/>
+
+
+    <!-- Header/footer -->
+    <script src="res/js/header.js"></script>
+    <script src="res/js/footer.js"></script>
+
+    <!-- Google -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+
+
+    <!-- Fuentes tipográficas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+
+    <!-- Título -->
+    <title>Login - Restoclub</title>
+</head>
+<body >
+    
+    <div id="container-login">
+        <p id="aviso"></p>
+        <form>
+            <p>
+                <!--<label for="usuario">Usuario</label>-->
+                <input type="text" name="usuario" id="usuario" placeholder="Usuario">
+            </p>
+            <p>
+                <!--<label for="pass">Contraseña</label>-->
+                <input type="password" name="pass" id="pass" placeholder="Contraseña">
+            </p>
+            <button type="button" id="loginButton" class="btn-primario">Iniciar sesión</button>
+
+        </form>
+
+        <!-- Botón Google One Tap -->
+        <p>*Sólo para cuentas de clientes</p>
+            <div id="g_id_onload"
+                data-client_id="229602517751-9ebjeug2k5dg9uonqfdivc2qmvmoneoc.apps.googleusercontent.com"
+    
+                
+                data-callback="handleCredentialResponse"
+                data-auto_prompt="false"
+                data-context="use">
+            </div>
+            <div class="g_id_signin"
+                data-type="standard"
+                data-size="large"
+                data-theme="outline"
+                data-text="sign_in_with"
+                data-shape="rectangular"
+                data-logo_alignment="left">
+            </div>
+            
+            <p>¿Todavía no tienes cuenta?</p>
+            <button type="button" id="registrarse" class="btn-secundario">Registrarse</button>
+        </div>
+    </div>
+
+
+    <script>
+
+    
+    function handleCredentialResponse(datos = null) {
+        console.log(datos);
+        $.ajax({
+            url: "res/php/sessions/login.php",
+            cache: false,
+            type: 'POST',
+            data: datos,
+            success: function(datos) {
+            let usuario = $.parseJSON(datos);
+
+            //Si el usuario existe
+            if(usuario[0]) {
+                
+                //Guardamos la info del usuario en una variable
+                let tipoUsuario = usuario[1];
+
+                //En función del tipo de usuario, window.location.href nos llevará a un sitio u otro
+                switch(tipoUsuario) {
+                    case '1': tipoUsuario = 'perfil-d';
+                    break;
+                    case '2': tipoUsuario = 'perfil-d';
+                    break;
+                    case '3': tipoUsuario = 'perfil-c';
+                    break;
+                }
+
+                //Añadimos el id del usuario para poder recoger su información en la ventana destino
+                window.location.href = tipoUsuario + ".html";
+
+            //Si el usuario no existe
+            } else {
+                
+                $('#aviso').empty().append("El usuario o la contraseña son incorrectos.");
+            }
+            },
+            error: function(xhr) {
+                console.log(xhr.statusText + xhr.responseText);
+            }
+
+        });
+}
+
+    
+    </script>
+</body>
+</html>

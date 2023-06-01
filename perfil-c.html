@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="res/css/styles.css">
+    <link rel="stylesheet" href="res/css/pagination.css">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- Jquery UI -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+
+    <!-- Pagination -->
+    <script src="res/js/pagination.js"></script>
+
+    <!-- JavaScript -->
+    <script src="res/js/perfil-cliente.js"></script>
+    <script src="res/js/general.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg" href="res/img/favicon-08.png"/>
+
+    <!-- Flat icon -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    
+    <!-- Header/footer -->
+    <script src="res/js/header.js"></script>
+    <script src="res/js/footer.js"></script>
+
+
+    <!-- Fuentes tipográficas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+
+    <!-- Título -->
+    <title>Perfil - Restoclub</title>
+</head>
+<body>
+    
+    <div id="perfil" class="cliente">
+    </div>
+    <div id="container-cliente">
+
+        <div>
+            <div id="botones-cliente">
+                <button class="btn-secundario" id="visitados">Visitados</button>
+                <button class="btn-secundario" id="favoritos">Favoritos</button>
+                <button class="btn-secundario" id="comentarios">Comentarios</button>
+                <button class="btn-secundario test">Mini-test</button>
+            </div>
+            <h1 class="titulo"></h1>
+    
+            <div id="restaurantes">
+    
+                <div class="contenido">  
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="img">
+
+        </div>
+        
+    </div>
+
+    <!-- Dialog CONFIRMACION -->
+    <div id="dialog-borrar" title="¿Estás seguro?"></div>
+
+    <!-- Dialog EDITAR PERFIL -->
+    <div id="dialog-edit-perfil" title="Editar perfil" class="ui-helper-hidden">
+        <h5>Editar perfil</h5>
+        <form class="editPerfil">
+            <div><input type="text" placeholder="Nombre y apellidos" name="nombreCompletoEdit" id="nombreCompletoEdit"></div>
+            <div><input type="text" placeholder="Usuario" name="nombreUsuarioEdit" id="nombreUsuarioEdit"></div>
+            <div><input type="text" placeholder="Email" name="emailEdit" id="emailEdit"></div>
+        </form>
+
+    </div>
+
+    <!-- Dialog mensajes -->
+    <div  class="ui-helper-hidden">    
+        <p id="validado"></p>
+    </div>
+</body>
+</html>

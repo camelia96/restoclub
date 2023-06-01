@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="res/css/styles.css">
+    <link rel="stylesheet" href="res/css/pagination.css">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- Jquery UI -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+
+    <!-- Pagination -->
+    <script src="res/js/pagination.js"></script>
+
+    <!-- JavaScript -->
+    <script src="res/js/perfil-duenyo.js"></script>
+    <script src="res/js/general.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg" href="res/img/favicon-08.png"/>
+
+    <!-- Font Awesome -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    
+    <!-- Header/footer -->
+    <script src="res/js/header.js"></script>
+    <script src="res/js/footer.js"></script>
+    
+    
+
+    <!-- Fuentes tipográficas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Título -->
+    <title>Perfil - Restoclub</title>
+</head>
+<body>
+    
+    <div id="perfil">
+        <div>
+            <div>
+                <div class="nombreCompleto">Nombre Completo<span>Nombre Completo</span> </div>
+                <div class="nombreUsuario">Usuario<span>Usuario</span></div>
+                <div class="email">E-mail<span>mail</span></div>  
+                <button type="button" class="btn-primario">Editar perfil</button> 
+            </div>
+        </div>
+    </div>
+    <div id="container-duenyo">
+        <div id="titulos">
+            <div>ID</div>
+            <div>Nombre</div>
+            <div>Categoria</div>
+            <div></div>
+            <div></div>
+            <button type="button" class="anyadir btn-secundario"><i class="fi fi-rr-plus-small"></i></button>
+        </div>
+        <div id="restaurantes">
+        </div>
+
+
+
+        <!-- Paginator -->
+        <div id="data-container"></div>
+        <div id="pagination-container"></div>
+
+
+        <!---------------- DIALOGS -->
+
+        <!-- Dialog para mostrar datos -->
+        <div id="dialog-datos" title="Datos local" class="ui-helper-hidden">    
+            
+        </div>
+
+
+        <!-- Dialog para insertar datos -->
+        <div id="dialog-form" title="Añadir local" class="ui-helper-hidden">    
+            <div class="datos">
+                <p id="validado" ></p>   
+                <form action="">
+                    <div class="columna">
+                        <div>
+                            <label for="nombreForm">Nombre</label>
+                            <input type="text" name="nombreForm" id="nombreForm">
+                        </div>
+                        <div>
+                            <label for="categoriaForm">Categoría</label>
+                            <select name="categoriaForm" id="categoriaForm"></select>
+                        </div>
+                        <div>
+                            <label for="tipoForm">Tipo Restaurante</label>
+                            <select  id="tipoForm" name="tipoFormEdit"></select>
+                        </div>
+                        
+                        <div>
+                            <label for="webForm">Web<span class="opcional"> (Opcional)</span</label>
+                            <input type="text" name="webForm" id="webForm" title="Introduce la URL">
+                        </div>
+                        <div>
+                            <label for="red_socialForm">Instagram<span class="opcional"> (Opcional)</span</label>
+                            <input type="text" name="red_socialForm" id="red_socialForm">
+                        </div>
+                        <div>
+                            <label for="precio_medioForm">Precio medio</label>
+                            <input type="text" name="precio_medioForm" id="precio_medioForm" title="Introduce un número o un rango aproximado (Ej: 20-25)">
+                        </div>
+                        <div>
+                            <label for="gamaForm">Gama</label>
+                            <select name="gamaForm" id="gamaForm"></select>
+                        </div>
+                        <div>
+                            <label for="menuForm">Menú<span class="opcional"> (Opcional)</span</label>
+                            <input type="text" name="menuForm" id="menuForm" title="Introduce la URL que llevará a la carta de la web">
+                        </div>
+                    </div>
+                    <div class="columna">
+                        
+                        <div>
+                            <label for="telefonoForm">Teléfono</label>
+                            <input type="text" name="telefonoForm" id="telefonoForm">
+                        </div>
+                        <div>
+                            <label for="calleForm">Calle</label>
+                            <input type="text" name="calleForm" id="calleForm">
+                        </div>
+                        <div>
+                            <label for="ciudadForm">Ciudad</label>
+                            <input type="text" name="ciudadForm" id="ciudadForm">
+                        </div>
+                        <div>
+                            <label for="provinciaForm">Provincia</label>
+                            <select name="provinciaForm" id="provinciaForm"></select>
+                        </div>
+                        <div>
+                            <label for="cpForm">CP</label>
+                            <input type="text" name="cpForm" id="cpForm">
+                        </div>
+                        <div class="coordenadas">
+                            <div>
+                                <label for="longForm">Longitud</label>
+                                <input type="text"  id="longForm" title="Es necesario añadir 3 decimales">
+                            </div>
+                            <div>
+                                <label for="latForm">Latitud</label>
+                                <input type="text"  id="latForm" title="Es necesario añadir 3 decimales">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="columna">
+                        <div>
+                            <label for="tiposForm">Tipos de pago</label>
+                            <div class="inputs">
+                                <input type="checkbox" class="checkbox-custom" name="tipoEfectivoForm" id="tipoEfectivoForm">
+                                <span>Efectivo</span>
+                                <input type="checkbox" class="checkbox-custom" name="tipoTarjetaForm" id="tipoTarjetaForm">
+                                <span>Tarjeta</span>
+                                <input type="checkbox" class="checkbox-custom" name="tipoBizumForm" id="tipoBizumForm">
+                                <span>Bizum</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="dietaForm">Dietas</label>
+                            <div class="inputs">
+                                <input type="checkbox" class="checkbox-custom" name="sinGlutenForm" id="sinGlutenForm">
+                                <span>Sin gluten</span>
+                                <input type="checkbox" class="checkbox-custom" name="vegetarianoForm" id="vegetarianoForm">
+                                <span>Vegetariano</span>
+                            </div>
+                        </div>
+                        <div class="botones">
+                            <button type="button" class="anyadirPromociones btn-secundario">Añadir promociones</button>
+                        </div>
+                        <div>
+                            <button type="button" class="anyadirEventos btn-secundario">Añadir eventos</button>
+                        </div>
+                        <div>
+                            <button type="button" class="anyadirImagenes btn-secundario">Añadir imágenes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dialog para editar datos -->
+        <div id="dialog-edit" title="Editar local" class="ui-helper-hidden">    
+            <p id="validado"></p>
+        </div>
+
+
+        <!-- Dialog para insertar eventos -->
+        <div id="dialog-evento" title="Añadir eventos" class="ui-helper-hidden">    
+            <div class="datos">
+                <form action="">
+                    <div class="inputsEventos">
+                        
+                        <h5>Eventos<i class="fi fi-rr-layer-plus addInputEvento"></i></h5>
+                        <div class="recordatorio">*Inserta tantos eventos al mismo tiempo como quieras</div>
+                        <div>
+                            <label for="fechaEventoForm-1">Fecha</label>
+                            <input type="datetime-local" name="fechaEventoForm-1" id="fechaEventoForm-1">
+                            <label for="eventoForm-1">Evento</label>
+                            <input type="text"  name="eventoForm-1" id="eventoForm-1">
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+
+        <!-- Dialog para insertar promociones -->
+        <div id="dialog-promo" title="Añadir promociones" class="ui-helper-hidden">    
+            <div class="datos">
+                <p id="error" ></p>   
+                <form action="">
+                    <div class="inputsPromociones">
+                        
+                        <h5>Promociones<i class="fi fi-rr-layer-plus addInputPromo"></i></h5>
+                        <div class="recordatorio">*Inserta tantas promociones al mismo tiempo como quieras</div>
+                        <div>
+                            <input type="text"  name="promoForm-1" id="promoForm-1">
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+
+
+
+        <!-- Dialog para añadir imágenes -->
+        <div id="dialog-add-img" title="Seleccionar imágenes" class="ui-helper-hidden">    
+            <p class="recordatorio">*Las imágenes que guardes aquí no se añadirán a la base de datos hasta que confirmes en la ventana principal</p>
+            <div class="datos">
+                <p id="error" ></p>   
+                <form action="">
+                    <input type="file" class="files" multiple accept="image/jpeg, image/png, image/jpg, image/webp" id="files" name="files[]">
+
+
+                    <label for="files">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                            <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                        </svg>
+                        
+                        <span>Carga tus imágenes</span>
+                        
+                    </label>
+                    <output></output>                
+                </form>
+            </div>
+        </div>
+
+        <!-- Dialog EDITAR PERFIL -->
+        <div id="dialog-edit-perfil" title="Editar perfil" class="ui-helper-hidden">
+            <h5>Editar perfil</h5>
+            <form class="editPerfil">
+                <div><input type="text" placeholder="Nombre y apellidos" name="nombreCompletoEdit" id="nombreCompletoEdit"></div>
+                <div><input type="text" placeholder="Usuario" name="nombreUsuarioEdit" id="nombreUsuarioEdit"></div>
+                <div><input type="text" placeholder="Email" name="emailEdit" id="emailEdit"></div>
+            </form>
+
+        </div>
+
+        <!-- Dialog para confirmar acciones -->
+        <div id="dialog-confirm" title="¿Estás seguro/a?" class="ui-helper-hidden">
+            <p></p>
+        </div>
+
+        <!-- Dialog plantilla -->
+        <div id="dialog" title="Dialog" class="ui-helper-hidden">
+            
+        </div>
+    </div>
+
+    
+</body>
+</html>
