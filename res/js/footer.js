@@ -13,7 +13,7 @@ $(document).ready(function(){
         </div>
         <div>
             <h5>Centro de ayuda</h5>
-            <p>¿Tienes alguna sugerencia? Contáctanos:</p>
+            <p>¿Tienes alguna sugerencia, queja o pregunta? Contáctanos:</p>
             <p><a href="mailto:camelia.96str@gmail.com">camelia.96str@gmail.com</a></p>
         </div>
     </div>

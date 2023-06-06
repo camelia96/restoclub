@@ -1078,6 +1078,19 @@ input::placeholder {
 }
 
 
+#container-local #tercera-fila h2 {
+    font-size: 2vw;
+    font-family: 'Kidstock';
+    text-transform: lowercase;
+
+}
+
+#container-local #tercera-fila h6{
+    font-size: 1.1vw;
+
+}
+
+
 #container-local #tercera-fila #comentarios {
     display: flex;
     flex-direction: column;
@@ -1428,6 +1441,27 @@ input::placeholder {
     border-radius: 30px;
 }
 
+#container-cliente #restaurantes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#container-cliente tbody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#container-cliente tr {
+    margin-bottom: 5%;
+}
+#container-cliente td {
+    width: 18vw; 
+    padding: 0 20px;
+}
 
 #container-cliente .restaurante {
     position: relative;
@@ -1438,8 +1472,8 @@ input::placeholder {
     font-size: 1.3vw;
     background: var(--blue-aux);
     margin-bottom: 5%;
-    width: 20%;
-    padding: 1%;
+    /*width: 20%;*/
+    padding: 4%;
     border-radius: 30px;
 }
  #container-cliente .restaurante >div {
@@ -1488,8 +1522,8 @@ input::placeholder {
     font-size: 1.2vw;
     color: var(--white);
     background: var(--blue-pastel);
-    height: 25px;
-    width: 25px;
+    height: 22px;
+    width: 22px;
     border-radius: 100px;
     transition: all .5s;
     
@@ -1525,20 +1559,24 @@ input::placeholder {
     gap: 3%;
     width: 100%;
 }
-
+#container-cliente .comentarios{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 7%;
+}
 #container-cliente .aux-comentarios {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: start;
     gap: 3%;
 }
 
 
 #container-cliente .comentario{
-    width: 15%;
+    width: 15vw;
     min-height: 15vh;
-    margin: 3% 0;
+    margin: 5% 0;
     margin-top: 0;
     flex-direction: column;
     border: 1px solid var(--blue-pastel);
@@ -1563,6 +1601,7 @@ input::placeholder {
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 1.25vw;
+    margin-bottom: 4%;
     gap: 3%;
     width: 100%;
     display: flex;
@@ -1949,7 +1988,9 @@ input::placeholder {
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
+    /*align-items: center;*/
     gap: 4%;
+    min-height: 20vh;
 }
 
 #container-finder .resultado {

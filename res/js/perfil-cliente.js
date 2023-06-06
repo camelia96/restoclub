@@ -35,8 +35,40 @@ $(document).ready(function(){
                             if(locales.length<1) {
                                 $('.contenido').empty().append('<p>Aún no tienes locales '+tipo+'</p>');
                             } else {
+
+                                //Limpiamos la tabla
+                                $('table').empty();
+                                //Recogemos el total de locales
+                                let totalLocales = locales.length;
+
+                                //Ese total lo dividimos entre 4, redondeándolo al entero siguiente
+                                let totalFilas = Math.ceil(totalLocales / 4);
+
+                                //Con el total de filas las creamos en la tabla
+                                for (let i=0; i<totalFilas; i++) {
+
+                                    $('table').append('<tr id=fila-'+(i+1)+'></tr>');
+
+                                }
+
+                                let numeroFilaTr = 1;
+                                let numeroTd = 1;
+
+
                                 for(let local of locales) {
-                                    pintarLocal(local, tipo);
+                                    let tdRellenar = $('tr[id="fila-'+numeroFilaTr+'"]')
+
+                                    if( numeroTd % 4 == 0 ) {
+                                        numeroFilaTr++;
+                                    }
+
+                                    numeroTd++;
+
+                                    console.log(numeroTd);
+
+
+                                    console.log(tdRellenar);
+                                    pintarLocal(local, tipo, tdRellenar);
                                 }
                             }
                             
@@ -52,6 +84,7 @@ $(document).ready(function(){
                 $('#comentarios').on('click', function(){
                     $('.titulo').empty().append("Comentarios");
                     $('.contenido').empty();
+                    $('#restaurantes').empty();
 
                     
 
@@ -135,6 +168,7 @@ $(document).ready(function(){
                     let dialogBorrarComentario = $('#dialog-borrar').dialog({
                         autoOpen: false,
                         modal: true,
+                        width: "50%",
                         buttons:{
                             Aceptar: function(){
                             //Enviamos la info a php para borrar el comentario
@@ -152,8 +186,40 @@ $(document).ready(function(){
                                     if(locales.length<1) {
                                         $('.contenido').empty().append('<p>Aún no tienes locales '+tipo+'</p>');
                                     } else {
+                                        
+                                        //Limpiamos la tabla
+                                        $('table').empty();
+                                        //Recogemos el total de locales
+                                        let totalLocales = locales.length;
+        
+                                        //Ese total lo dividimos entre 4, redondeándolo al entero siguiente
+                                        let totalFilas = Math.ceil(totalLocales / 4);
+        
+                                        //Con el total de filas las creamos en la tabla
+                                        for (let i=0; i<totalFilas; i++) {
+        
+                                            $('table').append('<tr id=fila-'+(i+1)+'></tr>');
+        
+                                        }
+        
+                                        let numeroFilaTr = 1;
+                                        let numeroTd = 1;
+        
+        
                                         for(let local of locales) {
-                                            pintarLocal(local, tipo);
+                                            let tdRellenar = $('tr[id="fila-'+numeroFilaTr+'"]')
+        
+                                            if( numeroTd % 4 == 0 ) {
+                                                numeroFilaTr++;
+                                            }
+        
+                                            numeroTd++;
+        
+                                            console.log(numeroTd);
+        
+        
+                                            console.log(tdRellenar);
+                                            pintarLocal(local, tipo, tdRellenar);
                                         }
                                     }
                                     
@@ -185,6 +251,7 @@ $(document).ready(function(){
                     let dialogBorrarComentario = $('#dialog-borrar').dialog({
                         autoOpen: false,
                         modal: true,
+                        width: "50%",
                         buttons:{
                             Aceptar: function(){
                             //Enviamos la info a php para borrar el comentario
@@ -194,6 +261,7 @@ $(document).ready(function(){
                                 data: 'delete&idComentario=' + idComentario + "&idPerfil=" + idPerfil,
                                 method: "POST",
                                 success: function(datos) {
+                                    $('#restaurantes').empty();
                                     $('.contenido').empty();
 
                                     let comentarios = $.parseJSON(datos);
@@ -203,9 +271,11 @@ $(document).ready(function(){
 
                                     //Hacemos un append con la estructura de paginacion en el html
                                     $('.contenido').append(`
+                                    <div class="comentarios">
                                         <div class="aux-comentarios"></div> 
                                         <div id="data-container"></div>
-                                        <div id="pagination-container"></div>`);
+                                        <div id="pagination-container"></div>
+                                    </div>  `);
 
                                     //Pagination
                                     $('#pagination-container').pagination({
@@ -386,13 +456,25 @@ function pintarPerfil(perfil) {
         </div>`).appendTo('#perfil');
 }
 
-function pintarLocal(local, tipo) {
-    $(`<div class="restaurante" >
+function pintarLocal(local, tipo, td) {
+    /*$(`<div class="restaurante" >
             <div id="local-`+ local.idLocal+`"><span id="img-`+ local.id+`"></span></div>
             <div class="eliminarLocal"><button id="eliminar-`+tipo+`-`+local.id+`-`+local.idLocal+`-`+local.idCliente+`"><i class="fi fi-rr-cross-small" ></i></button></div>
             <div id="local-`+ local.idLocal+`"><a href="">`+local.nombre+`</div></a>
             
         </div>`).appendTo('.contenido');
+
+*/
+    $(`<td>
+    
+    <div class="restaurante" >
+            <div id="local-`+ local.idLocal+`"><span id="img-`+ local.id+`"></span></div>
+            <div class="eliminarLocal"><button id="eliminar-`+tipo+`-`+local.id+`-`+local.idLocal+`-`+local.idCliente+`"><i class="fi fi-rr-cross-small" ></i></button></div>
+            <div id="local-`+ local.idLocal+`"><a href="">`+local.nombre+`</div></a>
+            
+        </div>
+    
+    </td>`).appendTo(td);
     
     //Definimos background de img-resultado
     $('#img-' + local.id).css({"background-image": "url(res/img/"+local.imagen+")", "background-size": "cover", "background-position": "center"});
@@ -430,7 +512,7 @@ function dialogMensaje(texto) {
     $('#validado').empty().append(texto);
     $( "#validado" ).dialog({
       modal: true,
-      height:200,
+      height:"auto",
       width: 350,
       buttons: {
         Ok: function() {

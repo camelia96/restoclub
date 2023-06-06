@@ -568,7 +568,7 @@ $(document).ready(function(){
                               //Si el array localesDuenyo está vacío
                               if(localesDuenyo.length == 0) {
 
-                                $('#restaurantes').html('Sin datos.');
+                                $('.sin-datos').html('Añade tu primer local');
                               } else {
 
                                 
@@ -860,7 +860,7 @@ $(document).ready(function(){
                     //Si el array localesDuenyo está vacío
                     if(localesDuenyo.length == 0) {
 
-                      $('#restaurantes').html('Sin datos.');
+                      $('.sin-datos').html('Añade tu primer local');
                     } else {
 
                       //Pasamos los objetos de locales a un array
@@ -2395,7 +2395,7 @@ function dialogMensaje(texto) {
 
   $( "#validado" ).dialog({
     modal: true,
-    height:200,
+    height:"auto",
     width: 400,
     buttons: {
       Ok: function() {

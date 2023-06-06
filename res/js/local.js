@@ -540,7 +540,7 @@ $(document).ready(function(){
 
           //Si no existe session o es session de dueño
           } else {
-            dialogMensaje("Es necesaria una cuenta de cliente para poder comentar.");
+            dialogMensaje("Es necesaria una cuenta de cliente");
           }
         })
 
@@ -562,7 +562,7 @@ function dialogMensaje(texto) {
 
   $( "#validado" ).dialog({
     modal: true,
-    height:280,
+    height:"auto",
     width: 500,
     buttons: {
       Ok: function() {

@@ -113,17 +113,25 @@ $(document).ready(function(){
 
           //Pintamos el html con los locales recuperados
           let locales = jQuery.parseJSON(datos);
-          
+          console.log(locales);
           //Si el array localesDuenyo está vacío
           if(locales.length == 0) {
 
-            $('#resultados').html('No hay locales con los filtros seleccionados.');
+            
+            $('#pagination-container').pagination({
+              dataSource: [1], // Conjunto de datos a paginar
+              
+              pageSize: 15, // Número de elementos por página
+              callback: function(data, pagination) {
+                $('#resultados').html('No hay locales con los filtros seleccionados.');
+              }
+            });
           } else {
 
             //Pasamos los objetos de locales a un array
             let localesArray = Object.keys(locales).map(function (key) { return locales[key]; });
 
-            
+            console.log(localesArray);
             $('#pagination-container').pagination({
               dataSource: localesArray, // Conjunto de datos a paginar
               
@@ -394,10 +402,20 @@ function mostrarLocalesSinFiltro(params = '') {
         //Pintamos el html con los locales recuperados
         let locales = jQuery.parseJSON(datos);
 
+        console.log(locales);
         //Si el array localesDuenyo está vacío
         if(locales.length == 0) {
 
-          $('#resultados').html('No hay locales con los filtros seleccionados.');
+
+
+          $('#pagination-container').pagination({
+            dataSource: [1], // Conjunto de datos a paginar
+            
+            pageSize: 15, // Número de elementos por página
+            callback: function(data, pagination) {
+              $('#resultados').html('No hay locales con los filtros seleccionados.');
+            }
+          });
         } else {
           //Pasamos los objetos de locales a un array
           let localesArray = Object.keys(locales).map(function (key) { return locales[key]; });
