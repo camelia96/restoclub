@@ -196,12 +196,18 @@ nav button {
 
 #portada button {
     color: var(--blue-strong);
+    transition: all .5s;
+}
+#portada button:hover {
+    width: 16vw;
+    transform: translateX(3vw);
+    border-radius: 30px;
 }
 
 /* Descripción */
 #descripcion {
     height: 30vh;
-    padding: 4% 0;
+    padding: 7% 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -227,7 +233,7 @@ nav button {
 
 #categorias-landing {
     height: 65vh;
-    padding-bottom: 5%;
+    padding-bottom: 8%;
 
 }
 
@@ -491,9 +497,16 @@ nav button {
 #registro-landing .btn-landing{
     margin-top: 2%;
     background-color: var(--blue-strong);
+    transition: all .5s;
 }
 #registro-landing .btn-landing a{
     color: var(--white);
+}
+
+#registro-landing .btn-landing:hover {
+
+    width: 16vw;
+    border-radius: 30px;
 }
 
 
@@ -505,10 +518,10 @@ nav button {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5% 0;
+    padding: 15% 0;
 }
 #restaurantes-landing .imagen{
-    height: 45vh;
+    height: 55vh;
     width: 20vw;
     background-position: center;
     background-repeat: no-repeat;
@@ -546,12 +559,12 @@ nav button {
 
 #restaurantes-landing div>div:nth-child(2)>div {
     background-image: url('../img/cerv.jpg');
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 #restaurantes-landing div>div:last-child>div {
     background-image: url('../img/econ.jpg');
-    margin-top: 100px;
+    margin-top: 200px;
 }
 
 #restaurantes-landing .restaurante {

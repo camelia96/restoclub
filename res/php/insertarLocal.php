@@ -13,11 +13,19 @@
 
     //Antes de insertar el local, hemos de insertar la dirección en la tabla 'Direcciones' y recoger su id
 
+    //Limpiamos los datos de calle de posibles comillas
+    $calle = $_POST['calleForm'];
+
+    if(str_contains($calle, "'")) {
+        $calle = str_replace("'", "", $calle);
+    }
+    
+
     //Recogemos los datos de la dirección
     $direccion = array(
         $_POST['latForm'],
         $_POST['longForm'],
-        $_POST['calleForm'],
+        $calle,
         $_POST['ciudadForm'],
         $_POST['provinciaForm'],
         $_POST['cpForm']

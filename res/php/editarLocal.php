@@ -19,18 +19,23 @@ $getId = $sql -> query("SELECT direccion_id FROM local WHERE id = $idLocal");
 $lastId = $getId -> fetch_assoc();
 $idDireccion = $lastId['direccion_id'];
 
+    //Limpiamos los datos de calle de posibles comillas
+    $calle = $_POST['calleFormEdit'];
 
+    if(str_contains($calle, "'")) {
+        $calle = str_replace("'", "", $calle);
+    }
+    
     //Recogemos los datos de la dirección
     $direccion = array(
         $_POST['latFormEdit'],
         $_POST['longFormEdit'],
-        $_POST['calleFormEdit'],
+        $calle,
         $_POST['ciudadFormEdit'],
         $_POST['provinciaFormEdit'],
         $_POST['cpFormEdit'],
         $idDireccion
     );
-
 
     //Actualizamos la dirección
     $sqlData->updateDireccion($direccion);
