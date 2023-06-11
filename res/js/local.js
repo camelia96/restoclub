@@ -562,7 +562,7 @@ function dialogMensaje(texto) {
 
   $( "#validado" ).dialog({
     modal: true,
-    height:"auto",
+    height:300,
     width: 500,
     buttons: {
       Ok: function() {

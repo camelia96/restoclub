@@ -200,7 +200,6 @@ nav button {
 }
 #portada button:hover {
     width: 16vw;
-    transform: translateX(3vw);
     border-radius: 30px;
 }
 
@@ -2020,6 +2019,8 @@ input::placeholder {
 }
 
 #container-finder .resultado div[id^="img-resultado"]{
+    background: var(--blue-aux);
+    background-image: url('../img/logo-04.png');
     height: 70%;
     border-bottom: 1px solid var(--blue-third);
     background-repeat: no-repeat;

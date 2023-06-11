@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  //Tooltip
+  $( document ).tooltip();
 
     //Botones superiores
     $('.americano').on('click', function(){
